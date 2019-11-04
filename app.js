@@ -1,6 +1,7 @@
 const express = require('express');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
@@ -11,6 +12,6 @@ app.get('/todo', (req, res) => {
     res.render('todo', {todos: data});
 });
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(port, function(){
     console.log('connected');    
 });
